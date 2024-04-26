@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import requests
-from django.views.generic import CreateView
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
 from .forms import CityForm
 from .models import City
@@ -44,6 +46,11 @@ def index(request):
     context = {"all_info": all_cities, "form": form, "message": response}
 
     return render(request, "mem_weather/index.html", context)
+
+
+
+
+
 
 
 # def mem_gpt(message: str) -> str:
